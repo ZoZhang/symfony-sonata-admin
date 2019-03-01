@@ -1,0 +1,4 @@
+sonata_block:
+    blocks:
+        sonata.admin.block.search_result:
+            contexts:   [admin]

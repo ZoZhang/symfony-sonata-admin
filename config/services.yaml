@@ -26,3 +26,52 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+
+    admin.user:
+        class: App\Admin\UserAdmin
+        arguments: [~, App\Entity\User, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Tous les utilisateurs, on_top: true, icon: '<i class="fa fa-user"></i>', group: Utilisateur }
+
+    admin.bank:
+        class: App\Admin\BankAdmin
+        arguments: [~, App\Entity\Bank, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Tous les comptes, icon: '<i class="fas fa-money-check-alt"></i>', group: Banques }
+
+    admin.bank.log:
+        class: App\Admin\BankLogAdmin
+        arguments: [~, App\Entity\BankLogs, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Tous les operations, icon: '<i class="fas fa-money-check-alt"></i>', group: Banques }
+
+    admin.horse:
+        class: App\Admin\HorseAdmin
+        arguments: [~, App\Entity\Horse, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Tous les chevaux, icon: '<i class="fas fa-horse"></i>', group: Chevaux }
+
+#    admin.horse.contest:
+#        class: App\Admin\ContestAdmin
+#        arguments: [~, App\Entity\Contests, ~]
+#        tags:
+#            - { name: sonata.admin, manager_type: orm, label: Tous les concours, group: Chevaux }
+
+    admin.horse.infrastructure:
+        class: App\Admin\InfrastructureAdmin
+        arguments: [~, App\Entity\Infrastructures, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Tous les infrastructures, group: Chevaux }
+
+    admin.news:
+        class: App\Admin\NewsAdmin
+        arguments: [~, App\Entity\Actuality, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Tous les actualités,  on_top: true, icon: '<i class="far fa-newspaper"></i>', group: Actualités}
+
+    admin.commercial:
+        class: App\Admin\CommercialAdmin
+        arguments: [~, App\Entity\Commercials, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Tous les commerciaux, on_top: true, icon: '<i class="fas fa-dumpster"></i>', group: Commerciaux }
+
