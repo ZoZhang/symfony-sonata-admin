@@ -24,7 +24,6 @@ final class BankAdmin extends AbstractAdmin
      */
     protected function configureFormFields(FormMapper $formMapper)
     {
-
         $formMapper->with('General');
 
 //        if ($this->hasRoute('create')) {
@@ -49,12 +48,14 @@ final class BankAdmin extends AbstractAdmin
     }
 
     /**
-     * @param ListMapper $listMapper
+     * @param ListMapper $listMappe r
      */
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper->addIdentifier('id')
                    ->add('money')
+                   ->add('user.name')
+                   ->add('user.mail')
                    ->add('_action', 'actions', [
                         'actions' => [
                             'edit' => [],

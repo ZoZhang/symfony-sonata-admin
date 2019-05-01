@@ -398,11 +398,6 @@ class User
         $this->lastOnline = $lastOnline;
     }
 
-    public function getUser(): self
-    {
-        return $this;
-    }
-
     public function __toString()
     {
         return (string) $this->username;

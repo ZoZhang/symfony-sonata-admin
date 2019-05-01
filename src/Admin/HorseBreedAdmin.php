@@ -1,6 +1,6 @@
 <?php
 
-// src/Admin/NewsAdmin.php
+// src/Admin/HorseBreedAdmin.php
 
 namespace App\Admin;
 
@@ -15,30 +15,25 @@ use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
-final class NewsAdmin extends AbstractAdmin
+final class HorseBreedAdmin extends AbstractAdmin
 {
     /**
      * @param FormMapper $formMapper
      */
     protected function configureFormFields(FormMapper $formMapper)
     {
-        $formMapper->with('General')
-            ->add(
-                'name',
-                TextType::class,
-                ['required' => true,]
-            )
-            ->add(
-                'significance',
-                TextType::class,
-                ['required' => true,]
-            )
-            ->add(
-                'description',
-                TextareaType::class,
-                ['required' => true,]
-            )
-            ->end();
+         $formMapper->with('General')
+                    ->add(
+                        'breedName',
+                        TextType::class,
+                        ['required' => true,]
+                    )
+                    ->add(
+                        'description',
+                        TextType::class,
+                        ['required' => false,]
+                    )
+                    ->end();
     }
 
     /**
@@ -47,16 +42,15 @@ final class NewsAdmin extends AbstractAdmin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper->addIdentifier('id')
-            ->add('name')
-            ->add('description')
-            ->add('significance')
-            ->add('_action', 'actions', [
-                'actions' => [
-                    'edit' => [],
-                    'delete' => [],
-                ]
-            ])
-        ;
+                   ->add('breedName')
+                   ->add('description')
+                   ->add('_action', 'actions', [
+                        'actions' => [
+                            'edit' => [],
+                            'delete' => [],
+                        ]
+                   ])
+            ;
     }
 
     /**
@@ -65,9 +59,7 @@ final class NewsAdmin extends AbstractAdmin
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper->add('id')
-            ->add('name')
-            ->add('significance')
-            ->add('description')
+            ->add('breedName')
         ;
     }
 
@@ -77,7 +69,7 @@ final class NewsAdmin extends AbstractAdmin
      */
     public function toString($object)
     {
-        return 'News ' . $object->getName() ?? ' ';
+        return 'Horse ' . $object->getBreedName() ?? ' ';
     }
 
 }

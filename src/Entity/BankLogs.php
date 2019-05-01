@@ -36,6 +36,26 @@ class BankLogs
     private $bankActionId;
 
     /**
+     * @var \App\Entity\Bank
+     *
+     * @ORM\ManyToOne(targetEntity="\App\Entity\Bank")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="bank_id", referencedColumnName="id")
+     * })
+     */
+    private $bank;
+
+    /**
+     * @var \App\Entity\BankAction
+     *
+     * @ORM\ManyToOne(targetEntity="\App\Entity\BankAction")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="bank_action_id", referencedColumnName="id")
+     * })
+     */
+    private $bankAction;
+
+    /**
      * @return int
      */
     public function getId(): int
@@ -98,5 +118,28 @@ class BankLogs
         $this->amount = $amount;
     }
 
+    public function getBank(): ?Bank
+    {
+        return $this->bank;
+    }
+
+    public function setBank(?int $bank): self
+    {
+        $this->bank = $bank;
+
+        return $this;
+    }
+
+    public function getBankAction(): ?BankAction
+    {
+        return $this->bankAction;
+    }
+
+    public function setBankAction(?int $bankActionId): self
+    {
+        $this->bankAction = $bankActionId;
+
+        return $this;
+    }
 
 }

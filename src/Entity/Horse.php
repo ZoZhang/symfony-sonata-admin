@@ -141,6 +141,43 @@ class Horse
     private $hunger;
 
     /**
+     * @var int
+     *
+     * @ORM\Column(name="dirtiness", type="integer", nullable=false)
+     */
+    private $dirtiness;
+
+    /**
+     * @var \App\Entity\Breed
+     *
+     * @ORM\ManyToOne(targetEntity="\App\Entity\Breed")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="breedid", referencedColumnName="id")
+     * })
+     */
+    private $breed;
+
+    /**
+     * @var \App\Entity\Temper
+     *
+     * @ORM\ManyToOne(targetEntity="\App\Entity\Temper")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="temper_id", referencedColumnName="id")
+     * })
+     */
+    private $temper;
+
+    /**
+     * @var \App\Entity\Mood
+     *
+     * @ORM\ManyToOne(targetEntity="\App\Entity\Mood")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="moodid", referencedColumnName="id")
+     * })
+     */
+    private $mood;
+
+    /**
      * @return int
      */
     public function getId(): int
@@ -436,12 +473,42 @@ class Horse
         $this->dirtiness = $dirtiness;
     }
 
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="dirtiness", type="integer", nullable=false)
-     */
-    private $dirtiness;
+    public function getBreed(): ?Breed
+    {
+        return $this->breed;
+    }
+
+    public function setBreed(?int $breed): self
+    {
+        $this->breed = $breed;
+
+        return $this;
+    }
+
+    public function getMood(): ?Mood
+    {
+        return $this->mood;
+    }
+
+    public function setMood(?int $mood): self
+    {
+        $this->mood = $mood;
+
+        return $this;
+    }
+
+    public function getTemper(): ?Temper
+    {
+        return $this->temper;
+    }
+
+    public function setTemper(?int $temper): self
+    {
+        $this->temper = $temper;
+
+        return $this;
+    }
+
 
 
 }

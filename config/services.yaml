@@ -51,11 +51,23 @@ services:
         tags:
             - { name: sonata.admin, manager_type: orm, label: Tous les chevaux, icon: '<i class="fas fa-horse"></i>', group: Chevaux }
 
-#    admin.horse.contest:
-#        class: App\Admin\ContestAdmin
-#        arguments: [~, App\Entity\Contests, ~]
-#        tags:
-#            - { name: sonata.admin, manager_type: orm, label: Tous les concours, group: Chevaux }
+    admin.horse.breed:
+        class: App\Admin\HorseBreedAdmin
+        arguments: [~, App\Entity\Breed, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Tous les races, group: Chevaux }
+
+    admin.horse.mood:
+        class: App\Admin\HorseMoodAdmin
+        arguments: [~, App\Entity\Mood, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Tous les humeurs, group: Chevaux }
+
+    admin.horse.temper:
+        class: App\Admin\HorseTemperAdmin
+        arguments: [~, App\Entity\Temper, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Tous les caractères, group: Chevaux }
 
     admin.horse.infrastructure:
         class: App\Admin\InfrastructureAdmin

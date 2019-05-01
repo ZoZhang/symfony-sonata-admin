@@ -38,9 +38,9 @@ final class BankLogAdmin extends AbstractAdmin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper->addIdentifier('id')
-                   ->add('bank_id')
-                   ->add('bank_action_id')
+                   ->add('bankAction.name')
                    ->add('amount')
+                   ->add('bank.user.name')
                    ->add('_action', 'actions', [
                         'actions' => [
                             'edit' => [],

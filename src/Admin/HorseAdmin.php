@@ -114,7 +114,10 @@ final class HorseAdmin extends AbstractAdmin
     {
         $listMapper->addIdentifier('id')
                    ->add('name')
-                   ->add('breedid')
+                   ->add('breed.breedName',
+                       'text', [
+                       'label'=>'Breed Name'
+                       ])
                    ->add('level')
                    ->add('experience')
                    ->add('general_state')
@@ -124,9 +127,15 @@ final class HorseAdmin extends AbstractAdmin
                    ->add('speed')
                    ->add('sociability')
                    ->add('intelligence')
-                   ->add('temper_id')
+                   ->add('temper.name',
+                        'text', [
+                            'label'=>'Temper'
+                        ])
                    ->add('health')
-                   ->add('moodid')
+                   ->add('mood.name',
+                        'text', [
+                            'label'=>'Mood'
+                        ])
                    ->add('stress')
                    ->add('tiredness')
                    ->add('hunger')

@@ -23,11 +23,14 @@ class Bank
     private $id;
 
     /**
-     * @var int
+     * @var \App\Entity\User
      *
-     * @ORM\Column(name="userid", type="integer", nullable=false)
+     * @ORM\ManyToOne(targetEntity="\App\Entity\User")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="userid", referencedColumnName="id")
+     * })
      */
-    private $userid;
+    private $user;
 
     /**
      * @var int
@@ -60,20 +63,16 @@ class Bank
         $this->money = $money;
     }
 
-    /**
-     * @return int
-     */
-    public function getUserid(): ?int
+    public function getUser(): ?User
     {
-        return $this->userid;
+        return $this->user;
     }
 
-    /**
-     * @param int $userid
-     */
-    public function setUserid($user): ?int
+    public function setUser(?int $user): self
     {
-        return $user->getId();
+        $this->user = $user;
+
+        return $this;
     }
 
 }

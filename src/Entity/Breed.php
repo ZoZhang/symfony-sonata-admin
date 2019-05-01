@@ -35,5 +35,44 @@ class Breed
      */
     private $description;
 
+    /**
+     * @return int
+     */
+    public function getId(): int
+    {
+        return $this->id;
+    }
+
+    /**
+     * @return string
+     */
+    public function getBreedName(): ? string
+    {
+        return $this->breedName;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDescription(): ? string
+    {
+        return $this->description;
+    }
+
+    /**
+     * @param string $breedName
+     */
+    public function setBreedName(string $breedName): void
+    {
+        $this->breedName = $breedName;
+    }
+
+    /**
+     * @param string $description
+     */
+    public function setDescription(string $description): void
+    {
+        $this->description = $description;
+    }
 
 }
