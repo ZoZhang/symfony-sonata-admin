@@ -67,16 +67,16 @@ class User
     /**
      * @var \DateTime|null
      *
-     * @ORM\Column(name="birthdate", type="date", nullable=true, options={"default"="NULL"})
+     * @ORM\Column(name="birthdate", type="date", nullable=true)
      */
-    private $birthdate = '';
+    private $birthdate;
 
     /**
      * @var string
      *
      * @ORM\Column(name="cell_number", type="string", nullable=false)
      */
-    private $cellNumber = '';
+    private $cellNumber = '' ;
 
     /**
      * @var string|null
@@ -123,14 +123,14 @@ class User
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="register_date", type="datetime", nullable=false, options={"default"="current_timestamp()"})
+     * @ORM\Column(name="register_date", type="datetime", nullable=false)
      */
     private $registerDate = 'current_timestamp()';
 
     /**
      * @var \DateTime|null
      *
-     * @ORM\Column(name="last_online", type="datetime", nullable=true, options={"default"="NULL"})
+     * @ORM\Column(name="last_online", type="datetime", nullable=true)
      */
     private $lastOnline = '';
 

@@ -24,11 +24,11 @@ class News
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="date", type="datetime", nullable=false, options={"default"="current_timestamp()"})
+     * @ORM\Column(name="date", type="datetime", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="NONE")
      */
-    private $date = 'current_timestamp()';
+    private $date;
 
     /**
      * @var int
